@@ -9,7 +9,7 @@ const modules: ModuleData[] = [
   {
     name: 'Nauka',
     url: 'learning/init',
-    imagePath: '/assets/imgs/learning.png',
+    imagePath: '/memos/assets/imgs/learning.png',
     disabled: false,
     description:
       'Moduł nauki pozwala na skuteczne uczenie się zagadnień przy pomocy interaktywnego flow',
@@ -17,7 +17,7 @@ const modules: ModuleData[] = [
   {
     name: 'Kreator pytań',
     url: 'creator',
-    imagePath: '/assets/imgs/creator.png',
+    imagePath: '/memos/assets/imgs/creator.png',
     disabled: true,
     description:
       'Moduł kreatora służy do opracowywania zestawów pytań do nauki',
