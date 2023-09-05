@@ -1,0 +1,67 @@
+@media screen and (max-width: 992px) {
+  .card {
+    width: 100vw;
+    height: 100dvh;
+
+    .content {
+      flex-grow: 1;
+    }
+  }
+
+  .buttons {
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .card {
+    width: 1020px;
+  }
+
+  .buttons {
+    .btn {
+      width: 40%;
+    }
+  }
+}
+
+.card {
+  padding: 32px;
+}
+
+.cardContainer {
+  flex-grow: 1;
+}
+
+.text-right {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollable {
+  max-height: 100px;
+  overflow-x: auto;
+}
+
+.table-responsive {
+  height: 400px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    opacity: 0;
+  }
+}
+thead tr:nth-child(1) th {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}

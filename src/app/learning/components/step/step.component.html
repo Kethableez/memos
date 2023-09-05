@@ -1,0 +1,17 @@
+<ng-container *ngIf="questionCard">
+  <div class="header">
+    <div class="headings">
+      <h2>{{ questionCard.mainHeading }}</h2>
+      <h3 *ngIf="questionCard.subHeading">{{ questionCard.subHeading }}</h3>
+    </div>
+    <div class="repbox mb-3">
+      <i class="bi bi-file-earmark-ruled"></i>
+      {{ questionCard.repLeft - 1 }}
+    </div>
+  </div>
+  <ktbz-section
+    *ngFor="let section of questionCard.sections"
+    [section]="section"
+    [sectionVisible]="questionCard.sectionsVisible"
+  ></ktbz-section>
+</ng-container>

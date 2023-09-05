@@ -1,0 +1,80 @@
+@media screen and (min-width: 993px) {
+  .card {
+    width: 992px;
+    max-height: 600px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .flowWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    gap: 8px;
+
+    &::-webkit-scrollbar {
+      opacity: 0;
+      width: 0;
+    }
+
+    .card {
+      width: 100%;
+    }
+
+    .card.question {
+      z-index: 2;
+      overflow-y: scroll;
+      flex-grow: 1;
+
+      &::-webkit-scrollbar {
+        opacity: 0;
+        width: 0;
+      }
+    }
+
+    .card.buttons {
+      margin: 0;
+      z-index: 4;
+      align-self: flex-end;
+    }
+
+    .card.status {
+      margin: 0;
+      align-self: flex-start;
+
+      z-index: 4;
+    }
+  }
+}
+
+.card.buttons {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 16px;
+
+  .btn {
+    width: 50%;
+  }
+}
+
+.card.status {
+  margin-bottom: 32px;
+
+  display: block;
+  padding: 16px;
+}
+
+.card {
+  padding: 32px;
+  width: 1020px;
+}
+
+.timebox {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: flex-end;
+  align-items: center;
+}

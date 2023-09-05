@@ -1,0 +1,48 @@
+.card {
+  .img-thumbnail {
+    border: none;
+    max-height: 200px;
+    min-height: 150px;
+    object-fit: contain;
+  }
+
+  user-select: none;
+  .redirectIcon {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    transition: 0.2s ease-in-out;
+    filter: grayscale(1);
+  }
+
+  i.bi.bi-caret-right-fill {
+    transition: 0.2s ease-in-out;
+
+    color: gray;
+  }
+
+  &:not(.disabled) {
+    cursor: pointer;
+
+    &:hover {
+      i.bi.bi-caret-right-fill {
+        color: #0d6efd;
+      }
+
+      img {
+        filter: grayscale(0);
+      }
+    }
+  }
+
+  &:is(.disabled) {
+    opacity: 50%;
+  }
+}

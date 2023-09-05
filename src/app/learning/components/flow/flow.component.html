@@ -1,0 +1,54 @@
+<div class="flowWrapper">
+  <div
+    class="card status"
+    *ngIf="{ progress: progress$ | async, timer: timer$ | async } as status"
+  >
+    <div class="progress" role="progressbar" aria-label="Example with label">
+      <div
+        *ngIf="status.progress"
+        class="progress-bar"
+        [style.width.%]="
+          ((status.progress.total - status.progress.left) * 100) /
+          status.progress.total
+        "
+      >
+        {{ status.progress.total - status.progress.left }} /
+        {{ status.progress.total }}
+      </div>
+    </div>
+    <div class="timebox mt-2">
+      <i class="bi bi-stopwatch"></i>
+      <span *ngIf="status.timer as timer; else initialTime"
+        >{{ timer.min }} : {{ timer.sec }}</span
+      >
+      <ng-template #initialTime> <span>00 : 00</span></ng-template>
+    </div>
+  </div>
+
+  <div class="card question" *ngIf="card$ | async as card">
+    <ktbz-step [questionCard]="card"></ktbz-step>
+  </div>
+
+  <div class="card buttons">
+    <button class="btn btn-secondary" (click)="stop()">
+      <i class="bi bi-stop-fill"></i>
+    </button>
+    <button class="btn btn-secondary" (click)="restart()">
+      <i class="bi bi-arrow-repeat"></i>
+    </button>
+    <button
+      *ngIf="repetitionModeActive"
+      class="btn btn-danger"
+      (click)="markAsWrong()"
+    >
+      <i class="bi bi-chevron-double-left"></i>
+    </button>
+    <button
+      *ngIf="repetitionModeActive"
+      class="btn btn-success"
+      (click)="markAsCorrect()"
+    >
+      <i class="bi bi-chevron-double-right"></i>
+    </button>
+  </div>
+</div>

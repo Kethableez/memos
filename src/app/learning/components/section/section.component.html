@@ -1,0 +1,51 @@
+<h4 *ngIf="section.heading">{{ section.heading }}</h4>
+<section (click)="toggleVisibility()">
+  <ng-container [ngSwitch]="section.type">
+    <ng-container *ngSwitchCase="'PARAGRAPH'">
+      <p
+        *ngFor="let line of section.content"
+        [ngClass]="paragraphClass()"
+        [innerHTML]="line"
+      ></p>
+    </ng-container>
+    <ng-container *ngSwitchCase="'TABLE'">
+      <table>
+        <tr *ngFor="let row of section.content; let i = index">
+          <ng-container *ngIf="i === 0; else defaultRow"
+            ><th *ngFor="let cell of row">{{ cell }}</th></ng-container
+          >
+          <ng-template #defaultRow
+            ><td [ngClass]="paragraphClass()" *ngFor="let cell of row">
+              {{ cell }}
+            </td>
+          </ng-template>
+        </tr>
+      </table>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'BULLET_LIST'">
+      <ul>
+        <li
+          [ngClass]="paragraphClass()"
+          *ngFor="let item of section.content"
+          [innerHTML]="item"
+        ></li>
+      </ul>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'ORDERED_LIST'">
+      <ol>
+        <li
+          [ngClass]="paragraphClass()"
+          *ngFor="let item of section.content"
+          [innerHTML]="item"
+        ></li>
+      </ol>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <div [ngClass]="paragraphClass()">
+        <span *ngFor="let item of section.content" [innerHTML]="item"> </span>
+      </div>
+    </ng-container>
+  </ng-container>
+</section>

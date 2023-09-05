@@ -1,0 +1,7 @@
+export enum ContentType {
+  DIV = 'DIV',
+  PARAGRAPH = 'PARAGRAPH',
+  TABLE = 'TABLE',
+  ORDERED_LIST = 'ORDERED_LIST',
+  BULLET_LIST = 'BULLET_LIST',
+}

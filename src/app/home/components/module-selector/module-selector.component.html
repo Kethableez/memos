@@ -1,0 +1,22 @@
+<ng-container *ngIf="data">
+  <div class="card mb-3" [class.disabled]="data.disabled" (click)="navigate()">
+    <div class="row g-0">
+      <div class="col-4 flex-col f-ac f-jc">
+        <img [src]="data.imagePath" class="img-thumbnail" alt="..." />
+      </div>
+      <div class="col-7 flex-col f-jc">
+        <div class="card-body">
+          <h5 class="card-title">{{ data.name }}</h5>
+          <p class="card-text">
+            {{ data.description }}
+          </p>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="redirectIcon">
+          <i class="bi bi-caret-right-fill"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

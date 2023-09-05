@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-jc {
+  justify-content: center;
+}
+
+.f-ac {
+  align-items: center;
+}

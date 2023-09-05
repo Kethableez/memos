@@ -1,0 +1,160 @@
+<div class="card">
+  <ng-container [ngSwitch]="step">
+    <ng-container *ngSwitchCase="1">
+      <h2>Wybierz bazę pytań</h2>
+
+      <div class="content">
+        <div
+          class="questionCard"
+          [class.selected]="selectedQuestionPoolKey === key"
+          (click)="selectQuestion(key)"
+          *ngFor="let key of questionKeys"
+        >
+          {{ key }}
+        </div>
+      </div>
+
+      <div class="div" class="buttons">
+        <button class="btn btn-outline-primary" (click)="previousStep()">
+          Anuluj
+        </button>
+        <button
+          class="btn btn-primary"
+          [disabled]="!selectedQuestionPoolKey"
+          (click)="nextStep()"
+        >
+          Dalej
+        </button>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+      <h2>Wybierz zakres pytań</h2>
+      <div class="div" class="buttons">
+        <button
+          class="btn btn-outline-primary"
+          [disabled]="!selectedQuestionIds.length"
+          (click)="select('none')"
+        >
+          Odznacz wszystkie
+        </button>
+        <button
+          class="btn btn-primary"
+          [disabled]="selectedQuestionIds.length === questions.length"
+          (click)="select('all')"
+        >
+          Zaznacz wszystkie
+        </button>
+      </div>
+
+      <div class="content">
+        <div
+          class="questionCard"
+          [class.selected]="selectedQuestionIds.includes(question.id)"
+          (click)="selectQuestionId(question.id)"
+          *ngFor="let question of questions"
+        >
+          {{ question.heading }}
+        </div>
+      </div>
+
+      <div class="div" class="buttons">
+        <button class="btn btn-outline-primary" (click)="previousStep()">
+          Wstecz
+        </button>
+        <button
+          class="btn btn-primary"
+          [disabled]="!selectedQuestionIds.length"
+          (click)="nextStep()"
+        >
+          Dalej
+        </button>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="3">
+      <h2>Skonfiguruj proces uczenia</h2>
+      <form [formGroup]="settingsForm" class="content">
+        <div class="control">
+          <label for="initialRep" class="form-label"
+            >Wstępna liczba powtórzeń</label
+          >
+          <input
+            type="number"
+            formControlName="initialRep"
+            class="form-control"
+            id="initialRep"
+          />
+        </div>
+
+        <div class="control">
+          <label for="maxRep" class="form-label"
+            >Maksymalna liczba powtórzeń</label
+          >
+          <input
+            type="number"
+            formControlName="maxRep"
+            class="form-control"
+            id="maxRep"
+          />
+        </div>
+
+        <div class="control">
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="randomizer"
+              formControlName="randomizer"
+            />
+            <label class="form-check-label" for="randomizer"
+              >Czy pytania mają być przemieszane?</label
+            >
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="examMode"
+              formControlName="examMode"
+            />
+            <label class="form-check-label" for="examMode"
+              >Włączyć tryb egzaminu?</label
+            >
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="visibleSection"
+              formControlName="sectionsVisible"
+            />
+            <label class="form-check-label" for="visibleSection"
+              >Czy sekcje pytań mają być domyślnie włączone</label
+            >
+          </div>
+        </div>
+      </form>
+
+      <div class="div" class="buttons">
+        <button class="btn btn-outline-primary" (click)="previousStep()">
+          Wstecz
+        </button>
+        <button
+          class="btn btn-primary"
+          [disabled]="settingsForm.invalid"
+          (click)="startLearning()"
+        >
+          Rozpocznij
+        </button>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

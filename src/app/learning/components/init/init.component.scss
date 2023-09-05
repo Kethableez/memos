@@ -1,0 +1,63 @@
+@media screen and (min-width: 993px) {
+  .card {
+    width: 992px;
+    max-height: 600px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .card {
+    width: 100vw;
+    height: 100dvh;
+
+    .content {
+      flex-grow: 1;
+    }
+  }
+}
+
+.card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+
+  .content {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 8px;
+
+    .questionCard {
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e6e6e6;
+      font-size: 20px;
+      text-transform: capitalize;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        color: white;
+        background-color: #6ea8fe;
+      }
+
+      &:active,
+      &.selected {
+        color: white;
+        background-color: #5288db;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    .btn {
+      flex-grow: 1;
+    }
+  }
+}

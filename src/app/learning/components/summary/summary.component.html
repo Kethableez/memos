@@ -1,0 +1,50 @@
+<div class="card" *ngIf="summary$ | async as summary">
+  <h2 *ngIf="summary.time">
+    Uczenie ukończyłeś w {{ summary.time.min }} minut i
+    {{ summary.time.sec }} sekund
+  </h2>
+  <hr />
+  <div class="cardContainer">
+    <h4>Bezproblemowe pytania</h4>
+    <div class="progress mb-2" role="progressbar">
+      <div
+        class="progress-bar bg-success"
+        [style.width.%]="getWidth(summary, 'correct')"
+      >
+        {{ getLabel(summary, "correct") }}
+      </div>
+    </div>
+
+    <h4>Problemowe pytania</h4>
+    <div class="progress mb-2" role="progressbar">
+      <div
+        class="progress-bar bg-danger"
+        [style.width.%]="getWidth(summary, 'wrong')"
+      >
+        {{ getLabel(summary, "wrong") }}
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Pytanie</th>
+            <th class="text-center">Błędy</th>
+          </tr>
+        </thead>
+        <tbody class="scrollable">
+          <tr *ngFor="let row of getProblematicQuestionsRows(summary)">
+            <td>{{ row.question }}</td>
+            <td class="text-center">{{ row.num }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="btn btn-secondary" (click)="redirectToInit()">
+      Rozpocznij od nowa
+    </button>
+  </div>
+</div>

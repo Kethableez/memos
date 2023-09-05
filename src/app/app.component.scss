@@ -1,0 +1,20 @@
+@media screen and (min-width: 993px) {
+  .appContainer {
+    width: 100vw;
+    height: 100dvh;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .appContainer {
+    width: 100vw;
+    min-height: 100dvh;
+  }
+}
+
+.appContainer {
+  background-image: url("/memos/assets/bg-1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

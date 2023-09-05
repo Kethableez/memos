@@ -1,0 +1,18 @@
+.repbox {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.headings {
+  flex-grow: 1;
+}
