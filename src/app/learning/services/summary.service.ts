@@ -6,6 +6,7 @@ export interface SummaryData {
   problematic: { [key: string]: number };
   time: { min: string; sec: string } | null;
   totalQuestions: number;
+  revisionMode: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -14,17 +15,19 @@ export class SummaryService {
   private problematicQuestions: { [key: string]: number } = {};
   private nonProblematicQuestions: string[] = [];
   private totalQuestions: number = 0;
+  private revisionMode = false;
 
   summary$ = new BehaviorSubject<SummaryData | null>(null);
 
   constructor() {}
 
-  addSummary() {
+  addSummary(revisionMode: boolean) {
     this.summary$.next({
       nonProblematic: this.nonProblematicQuestions.length,
       problematic: this.problematicQuestions,
       time: this.learningTime,
       totalQuestions: this.totalQuestions,
+      revisionMode: revisionMode,
     });
   }
 

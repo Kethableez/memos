@@ -808,37 +808,26 @@ const Q9: Question = {
       ],
     },
     {
-      heading: 'Modele eksploracji danych - cz. 2',
+      heading: 'Modele eksploracji danych',
       sections: [
         {
           type: ContentType.ORDERED_LIST,
-          heading: 'DMAIC',
-          content: [
-            'Definiowanie (cel i identyfikacja problemów)',
-            'Pomiar (informacje o aktualnym stanie procesu)',
-            'Analiza (definicja krytycznych przyczyn problemów, uzasadnienie wpływu)',
-            'Usprawnienie (wprowadzenie odpowiednich rozwiązań)',
-            'Kontrola',
-          ],
-        },
-        {
-          type: ContentType.ORDERED_LIST,
-          heading: 'VcofDM',
-          content: [
-            'Identyfikacja problemów biznesowych',
-            'Przekształcanie danych w informacje',
-            'Podjęcie działań',
-            'Mierzenie i ocena wyników',
-          ],
+          content: ['DMAIC', 'SEMMA', 'CRISP-DM', 'VcofDM'],
         },
       ],
     },
     {
-      heading: 'Modele eksploracji danych - cz. 1',
+      heading: 'CRISP-DM',
       sections: [
         {
+          type: ContentType.PARAGRAPH,
+          content: [
+            'Model eksploracji danych w której nie ma ściśle określonej kolejności faz. Można swobodnie przechodzić między fazami w zależności od potrzeb. Elastyczny i umożliwiający łatwe dostosowywanie.',
+          ],
+        },
+        {
           type: ContentType.ORDERED_LIST,
-          heading: 'CRISP-DM',
+          heading: 'Etapy',
           content: [
             'Zrozumienie uwarunkowań biznesowych',
             'Zrozumienie danych',
@@ -848,56 +837,74 @@ const Q9: Question = {
             'Wdrożenie',
           ],
         },
+      ],
+    },
+    {
+      heading: 'SEMMA',
+      sections: [
+        {
+          type: ContentType.PARAGRAPH,
+          content: [
+            'Dopuszcza iteracyjne powtarzanie etapów w celu znalezienia najllepszego modelu. Szczegółowa charakterystyka realizacji analizy. Skupia się tylko na analizie eksploracyjnej danych i kończy się tylko na ocenie jakości modelu pomijając ocenę użyteczności pozyskanej wiedzy.',
+          ],
+        },
         {
           type: ContentType.ORDERED_LIST,
-          heading: 'SEMMA',
+          heading: 'Etapy',
           content: [
-            'Próbkowanie (wykorzystanie części danych)',
-            'Eksplorowanie',
-            'Manipulacja',
-            'Modelowanie',
-            'Ocena',
+            'Próbkowanie - utworzenie reprezentatywnej próby badawczej (treningowy, walidacyjny, testowy',
+            'Analiza - analiza dnaych w celuy poznania i przygotowania danych do kolejnych etapów',
+            'Modyfikacja - tworzenie, selekcja i transformacja zmiennych wchodzących w skład modelu, redukcja wymiaru',
+            'Modelowanie - wykorzystanie technik analitycznych',
+            'Ocena - ocena wiarygodności wyników modelu',
           ],
         },
       ],
     },
     {
-      heading: 'Metody eksploracji danych',
+      heading: 'Algorytmy eksploracji danych',
+      sections: [
+        {
+          type: ContentType.PARAGRAPH,
+          heading: 'Klasyfikujące',
+          content: [
+            'Przyporządkowywują dane do kategorii. Ocena ryzyka kredytowego, analiza sprzedaży.',
+            'Algorytmy - Drzewa decyzyjne, naiwny klasyfikator Bayesa, sieć neuronowa',
+          ],
+        },
+        {
+          type: ContentType.PARAGRAPH,
+          heading: 'Grupujące',
+          content: [
+            'Grupowanie danych na podstawie podobnych cech. Kampanie mailowe, analiza profilu klientów',
+            'Algorytmy - analiza skupień, podobieństwa sekwencyjne',
+          ],
+        },
+        {
+          type: ContentType.PARAGRAPH,
+          heading: 'Kojarzące',
+          content: [
+            'Wyszukiwanie zaawansowanych korelacji między danymi wejściowymi. Powiązania między produktami, sprzedażą',
+            'Algorytmy - reguły związków',
+          ],
+        },
+        {
+          type: ContentType.PARAGRAPH,
+          heading: 'Prognozujące',
+          content: [
+            'Służące do prognozowania. Sprzedaż',
+            'Algorytmy - szeregi czasowe',
+          ],
+        },
+      ],
+    },
+    {
+      heading: 'Drzewa decyzyjne',
       sections: [
         {
           type: ContentType.PARAGRAPH,
           content: [
-            '<strong>Klastrowanie</strong> - głównym celem tych metod jest odnajdowanie w bazie danych skończonych zbiorów klas obiektów, czyli klastrów, posiadających podobne cechy. Owy proces klastrowania przebiega bardzo często w dwóch cyklach: cykl zewnętrzny, który przebiega po liczbie możliwych klastrów; cykl wewnętrzny, próbujący odnaleźć optymalny podział między klastry',
-          ],
-        },
-        {
-          type: ContentType.PARAGRAPH,
-          content: [
-            '<strong>Odkrywanie asocjacji</strong> - jest to najrozleglejsza klasa metod. Obejmuje odkrywanie różnego rodzaju nieznanych współzależności w bazie danych. Jest to przede wszystkim odkrywanie asocjacji między obiektami.',
-          ],
-        },
-        {
-          type: ContentType.PARAGRAPH,
-          content: [
-            '<strong>Odkrywanie wzorców sekwencji</strong> - czyli odkrywanie wzorców zachowań czasowych, na przykład sekwencja notowań giełdowych, zachowania klientów supermarketów.',
-          ],
-        },
-        {
-          type: ContentType.PARAGRAPH,
-          content: [
-            '<strong>Wykrywanie zmian i odchyleń</strong> - odnajdywanie różnic pomiędzy oczekiwanymi a aktualnymi wartościami danych, na przykład odnajdywanie anomalnych zachowań klientów firm telekomunikacyjnych.',
-          ],
-        },
-        {
-          type: ContentType.PARAGRAPH,
-          content: [
-            '<strong>Odkrywanie zbieżności w przebiegach czasowych </strong> - odnajdywanie podobieństw w czasowych przebiegach, które opisują określone procesy.',
-          ],
-        },
-        {
-          type: ContentType.PARAGRAPH,
-          content: [
-            '<strong>Odkrywanie klasyfikacji</strong> - do głównego celu tych metod należy odnajdywanie zależności między klasyfikacją danych obiektów (taką wprowadzoną przez eksperta lub naturalną) a ich charakterystyką',
+            'Pozwalają na klasyfikację z zapewnieniem przejżystości wyników dla człowieka. Wykorzystanie w klasyfikacji jakościowej oraz ilościowej. Odporne na obserwacje odstające. Są jednak niestabilne i przy nawet niewielkiej zmianie próby uczącej można otrzymać różne wyniki w końcowej postaci drzewa.',
           ],
         },
       ],
@@ -1396,12 +1403,34 @@ const Q16: Question = {
       ],
     },
     {
-      heading: 'Hol`up',
+      heading: 'OLAP',
       sections: [
         {
           type: ContentType.PARAGRAPH,
           content: [
-            '<strong>OLAP</strong> – baza danych dedykowana do wspierania rozwiązań analitycznych, założenie że baza zawiera fakty opisane przez wymiary.',
+            '<strong>OLTP</strong> - systemy umożliwiające wykonywanie i przetwarzanie w tym samym czasie dużej liczby transakcji przez wielu uzytkowników.',
+            '<strong>OLAP</strong> – systemy zapytań analitycznych. Zamieniają ransakcje przechowywane w bazach na widoki (wielowymiarowe struktury logiczne). Przekształcanie do kostek analitycznych umożliwiających wizualizację i badanie danych z różnych punktów widzenia',
+          ],
+        },
+        {
+          type: ContentType.TABLE,
+          content: [
+            ['OLTP', 'OLAP'],
+            [
+              'Wykonywanie wielu transakcji w tym samym czasie',
+              'Wykonywanie zapytania dotyczącego wielu rekordów',
+            ],
+            [
+              'Wymóg błyskawicznego czasu reakcji',
+              'Nie wymaga błyskawicznego czasu reakcji',
+            ],
+            ['Częsta modyfikacja danych', 'Przewaga odczytu danych'],
+            ['Zazwyczaj proste zapytania', 'Złożone zapytania'],
+          ],
+        },
+        {
+          type: ContentType.PARAGRAPH,
+          content: [
             '<strong>ROLAP</strong> – Relacyjny OLAP',
             '<strong>MOLAP</strong> – Wielowymiarowy OLAP',
             '<strong>HOLAP</strong> – Hybrydowy OLAP',
@@ -1410,7 +1439,40 @@ const Q16: Question = {
       ],
     },
     {
-      heading: 'Schematy',
+      heading: 'Kostki',
+      sections: [
+        {
+          type: ContentType.PARAGRAPH,
+          content: [
+            'Struktura danych do rozwiązań analitycznych umożliwiająca skuteczną analizę danych przy uzyciu wielowymiarowego modelu',
+            'Opisywana jest przez trzy grupy: <strong>Wymiary</strong>, <strong>Fakty</strong>, <strong>Poziomy</strong>',
+          ],
+        },
+        {
+          type: ContentType.BULLET_LIST,
+          heading: 'Główne reguły budowy',
+          content: [
+            'Wielowymiarowy widok',
+            'Transparencja',
+            'Dostępność',
+            'Spójne raportowanie',
+            'Architektura klient-serwer',
+            'Obsługa wymiarów',
+          ],
+        },
+        {
+          type: ContentType.BULLET_LIST,
+          heading: 'Operacje',
+          content: [
+            'Agregacje - przeprowadzane na danych liczbowych, sumowanie, minimum, maksimum',
+            'Rozwijanie - uszczegółowanie analizowanych danych',
+            'Wycinanie - wszelkie operacje filtrowania, sortowania, ograniczania',
+          ],
+        },
+      ],
+    },
+    {
+      heading: 'Schematy ROLAP',
       sections: [
         {
           type: ContentType.PARAGRAPH,

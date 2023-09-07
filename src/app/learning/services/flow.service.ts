@@ -77,7 +77,7 @@ export class FlowService {
   }
 
   stopLearning() {
-    this.summaryService.addSummary();
+    this.summaryService.addSummary(this.repetitionModeActive);
     this.stopTimer.next();
     this.resetToDefault();
     this.router.navigateByUrl('/learning/summary');
